@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luna Patagónica — Cruceros de lujo & casino | Patagonia Argentina</title>
+<meta name="description" content="Cruceros de lujo bajo los cielos más puros del planeta: Buenos Aires, Ushuaia, glaciares y un casino sobre el océano.">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f1e;--bg2:#0d1425;--bg3:#121b31;--line:rgba(195,208,228,.16);--txt:#dfe7f3;--mut:#8fa0ba;--moon:#eef3fa;--sil:#c3d0e4;--ice:#8fb0dd}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-snap-type:y proximity}
+section{scroll-snap-align:start}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--txt);line-height:1.65}
+h1,h2,h3,.serif{font-family:'Italiana',Georgia,serif;font-weight:400;letter-spacing:.02em}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.wrap{max-width:1150px;margin:0 auto;padding:0 22px}
+.overline{letter-spacing:.34em;text-transform:uppercase;font-size:.68rem;color:var(--ice);margin-bottom:14px}
+h2{font-size:clamp(1.9rem,3.6vw,2.8rem);color:var(--moon)}
+.lead{color:var(--mut);max-width:620px;margin-top:14px}
+.btn{display:inline-block;background:var(--moon);color:#0a0f1e;padding:14px 30px;letter-spacing:.18em;text-transform:uppercase;font-size:.73rem;font-weight:700;text-decoration:none;border:none;cursor:pointer;border-radius:999px;transition:.3s}
+.btn:hover{background:var(--sil)}
+.btn.ghost{background:transparent;color:var(--sil);border:1px solid var(--sil)}
+.btn.ghost:hover{background:rgba(195,208,228,.1)}
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,15,30,.72);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 26px;max-width:1250px;margin:auto}
+.logo{display:flex;align-items:center;gap:11px;color:var(--moon);text-decoration:none;font-family:'Italiana',serif;font-size:1.15rem;letter-spacing:.18em}
+.logo svg{width:26px;height:26px;fill:var(--sil)}
+.menu{display:flex;gap:24px}
+.menu a{color:var(--txt);text-decoration:none;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase}
+.menu a:hover{color:var(--moon)}
+.burger{display:none;background:none;border:none;color:var(--sil);font-size:1.6rem;cursor:pointer}
+.dots{position:fixed;right:22px;top:50%;translate:0 -50%;z-index:40;display:flex;flex-direction:column;gap:14px}
+.dots a{width:9px;height:9px;border:1px solid var(--sil);border-radius:50%;opacity:.55}
+.dots a:hover{opacity:1;background:var(--sil)}
+/* hero split */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.hx{display:flex;flex-direction:column;justify-content:center;padding:130px 60px 70px calc(max((100vw - 1250px)/2,22px) + 22px)}
+.hx h1{font-size:clamp(2.8rem,5.4vw,4.8rem);line-height:1.08;color:var(--moon)}
+.hx .lead{margin:22px 0 34px}
+.hx .cta{display:flex;gap:16px;flex-wrap:wrap}
+.hb{position:relative}
+.hb img{position:absolute;inset:0}
+.hb::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,transparent 18%)}
+/* barco */
+.barco{padding:110px 0;background:var(--bg2)}
+.barco .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.barco .ph{height:460px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
+.stats div{border-top:1px solid var(--line);padding-top:14px}
+.stats b{font-family:'Italiana',serif;font-size:1.7rem;color:var(--moon);display:block}
+.stats span{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+/* suites */
+.suites{padding:110px 0;background:var(--bg)}
+.suites .imgs{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:46px}
+.suites .imgs .ph{height:380px}
+.srows{margin-top:26px}
+.srow{border-top:1px solid var(--line);padding:20px 2px;display:grid;grid-template-columns:56px 1fr;gap:18px}
+.srow:last-child{border-bottom:1px solid var(--line)}
+.srow .n{font-family:'Italiana',serif;font-size:1.4rem;color:var(--ice)}
+.srow h3{font-size:1.3rem;color:var(--moon)}
+.srow p{color:var(--mut);font-size:.9rem}
+/* experiencias rail */
+.exp{padding:110px 0;background:var(--bg2)}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:min(400px,82vw);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:46px 22px 12px;max-width:1250px;margin:0 auto}
+.rcard{background:var(--bg3);border:1px solid var(--line);scroll-snap-align:start}
+.rcard .ph{height:240px}
+.rcard .tx{padding:24px}
+.rcard h3{font-size:1.35rem;color:var(--moon)}
+.rcard p{color:var(--mut);font-size:.9rem;margin-top:8px}
+.rcard.txt{display:flex;flex-direction:column;justify-content:center;padding:30px}
+/* gastro */
+.gastro{padding:110px 0;background:var(--bg)}
+.gastro .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.gastro .ph{height:440px}
+.gastro .small{height:220px;margin-top:18px}
+/* spa */
+.spa{padding:110px 0;background:var(--bg2)}
+.spa .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.spa .ph{height:440px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.facts div{border-left:1px solid var(--ice);padding-left:16px}
+.facts b{font-family:'Italiana',serif;font-size:1.5rem;color:var(--moon);display:block}
+.facts span{font-size:.82rem;color:var(--mut)}
+/* casino */
+.casino{padding:110px 0;background:var(--bg)}
+.cbox{border:1px solid var(--line);background:var(--bg3);display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;padding:60px}
+.badge18{display:inline-flex;width:52px;height:52px;border:1px solid var(--sil);border-radius:50%;align-items:center;justify-content:center;font-weight:700;color:var(--moon);margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}
+.chips span{border:1px solid var(--sil);border-radius:999px;padding:9px 18px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sil)}
+.cbox .ph{height:400px}
+.note{font-size:.8rem;color:var(--mut);margin-top:16px}
+/* quote */
+.quote{position:relative;min-height:76vh;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--moon)}
+.quote .bg{position:absolute;inset:0}
+.quote .bg::after{content:"";position:absolute;inset:0;background:rgba(8,11,22,.6)}
+.quote .wrap{position:relative;z-index:2}
+.quote blockquote{font-family:'Italiana',serif;font-size:clamp(1.5rem,3.2vw,2.4rem);max-width:840px;margin:0 auto 20px;line-height:1.3}
+.quote cite{font-style:normal;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--sil)}
+/* ruta */
+.ruta{padding:110px 0;background:var(--bg2)}
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;margin-top:50px}
+.stop{border-top:1px solid var(--line);padding:20px 0;display:grid;grid-template-columns:44px 1fr;gap:16px}
+.stop .m{color:var(--ice);font-size:1.1rem}
+.stop h4{color:var(--moon);font-size:1.02rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.stop p{color:var(--mut);font-size:.9rem;margin-top:4px}
+/* consultas */
+.consultas{padding:110px 0;background:var(--bg)}
+.form{max-width:680px;margin:44px auto 0;border:1px solid var(--line);border-radius:18px;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:20px;background:var(--bg2)}
+.form input,.form textarea{background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--txt);padding:14px 16px;font-family:'Manrope',sans-serif;font-size:.95rem;width:100%}
+.form textarea{grid-column:1/-1;min-height:110px;resize:vertical}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--sil)}
+.form .btn{grid-column:1/-1;justify-self:start}
+.ok{display:none;margin-top:26px;border:1px solid var(--sil);border-radius:12px;padding:18px 24px;color:var(--moon)}
+footer{background:#070b16;padding:70px 0 30px;border-top:1px solid var(--line)}
+.fgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:50px}
+.fgrid h4{color:var(--ice);letter-spacing:.24em;text-transform:uppercase;font-size:.72rem;margin-bottom:16px}
+.fgrid p,.fgrid a{color:var(--mut);font-size:.9rem;text-decoration:none;display:block;margin-bottom:8px}
+.fgrid a:hover{color:var(--moon)}
+.legales{margin-top:50px;border-top:1px solid rgba(255,255,255,.07);padding-top:26px}
+details{border-bottom:1px solid rgba(255,255,255,.07);padding:13px 0}
+summary{cursor:pointer;color:var(--txt);letter-spacing:.08em;font-size:.95rem;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"+";color:var(--ice)}
+details[open] summary::after{content:"–"}
+details p{color:var(--mut);font-size:.86rem;margin-top:12px}
+.copy{margin-top:34px;text-align:center;color:#5a6478;font-size:.78rem}
+@media(max-width:960px){.hero{grid-template-columns:1fr}.hx{padding:130px 22px 50px}.hb{min-height:56vh}.hb::after{background:linear-gradient(0deg,var(--bg) 0%,transparent 22%)}.barco .grid,.gastro .grid,.spa .grid,.cbox{grid-template-columns:1fr}.dots{display:none}.rgrid{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr}.menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:26px;gap:18px;border-bottom:1px solid var(--line)}.menu.open{display:flex}.burger{display:block}.stats{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.suites .imgs,.form{grid-template-columns:1fr}.cbox{padding:36px 24px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="#inicio">
+      <svg viewBox="0 0 26 26"><path d="M19 2a11 11 0 1 0 5 14A9.5 9.5 0 0 1 19 2z"/></svg>
+      LUNA PATAGÓNICA
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#barco">El Barco</a><a href="#suites">Suites</a><a href="#experiencias">Experiencias</a>
+      <a href="#casino">Casino</a><a href="#ruta">Ruta</a><a href="#consultas">Consultas</a>
+    </nav>
+    <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<nav class="dots">
+  <a href="#inicio" title="Inicio"></a><a href="#barco" title="El Barco"></a><a href="#suites" title="Suites"></a>
+  <a href="#experiencias" title="Experiencias"></a><a href="#gastro" title="Gastronomía"></a><a href="#spa" title="Spa"></a>
+  <a href="#casino" title="Casino"></a><a href="#ruta" title="Ruta"></a><a href="#consultas" title="Consultas"></a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hx">
+    <div class="overline">Buenos Aires · Patagonia · 54° S</div>
+    <h1>Navegar bajo la luna del fin del mundo</h1>
+    <p class="lead">Doce noches entre Buenos Aires y los glaciares australes, bajo los cielos más puros del planeta. Spa de piedra, gastronomía patagónica y un casino sobre el océano.</p>
+    <div class="cta">
+      <a class="btn" href="#experiencias">Explorar experiencias</a>
+      <a class="btn ghost" href="#barco">Conocer el barco</a>
+    </div>
+  </div>
+  <div class="hb"><img src="1.jpg" alt="Luna Patagónica bajo la luna llena"></div>
+</section>
+
+<!-- BARCO -->
+<section class="barco" id="barco">
+  <div class="wrap grid">
+    <div class="ph"><img src="2.jpg" alt="Cubiertas al atardecer"></div>
+    <div>
+      <div class="overline">El barco</div>
+      <h2>Un palacio silencioso sobre el mar austral</h2>
+      <p class="lead">Renovado íntegramente en 2025: madera clara, mármol y plata en lugar de oro. Ocho cubiertas pensadas para mirar el mar, sin apuro.</p>
+      <div class="stats">
+        <div><b>210 m</b><span>eslora</span></div>
+        <div><b>8</b><span>cubiertas</span></div>
+        <div><b>240</b><span>suites</span></div>
+        <div><b>380</b><span>tripulantes</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUITES -->
+<section class="suites" id="suites">
+  <div class="wrap">
+    <div class="overline">Suites & camarotes</div>
+    <h2>Dormir con la luna sobre el agua</h2>
+    <p class="lead">Lino marfil, lana patagónica y ventanales que enmarcan la estela. En cada categoría: biblioteca de a bordo, té de las cinco y servicio de mayordomía.</p>
+    <div class="imgs">
+      <div class="ph"><img src="3.jpg" alt="Suite lunar"></div>
+      <div class="ph"><img src="4.jpg" alt="Baño de mármol"></div>
+    </div>
+    <div class="srows">
+      <div class="srow"><div class="n">01</div><div><h3>Suite Lunar</h3><p>22 m² · cama queen · ventanal al mar · escritorio de lenga.</p></div></div>
+      <div class="srow"><div class="n">02</div><div><h3>Suite Balcón Austral</h3><p>28 m² · balcón privado · butacas de lectura · baño en mármol.</p></div></div>
+      <div class="srow"><div class="n">03</div><div><h3>Suite Gran Marea</h3><p>42 m² · balcón panorámico · living separado · bañera frente al océano.</p></div></div>
+      <div class="srow"><div class="n">04</div><div><h3>Suite Patagonia Real</h3><p>68 m² · terraza privada · mayordomo dedicado · comedor para seis.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIAS -->
+<section class="exp" id="experiencias">
+  <div class="wrap">
+    <div class="overline">Expedición</div>
+    <h2>Lo que se vive, no se anuncia</h2>
+  </div>
+  <div class="rail">
+    <div class="rcard"><div class="ph"><img src="8.jpg" alt="Snorkel con lobos marinos"></div><div class="tx"><h3>Snorkel con lobos marinos</h3><p>Aguas claras de la colonia de Punta Loma: curiosos lobos que nadan a tu lado.</p></div></div>
+    <div class="rcard"><div class="ph"><img src="9.jpg" alt="Astronomía en cubierta"></div><div class="tx"><h3>Astronomía en cubierta</h3><p>Telescopios y mantas de lana: la Vía Láctea como nunca la viste, sin luz de ciudad.</p></div></div>
+    <div class="rcard"><div class="ph"><img src="10.jpg" alt="Caminatas australes"></div><div class="tx"><h3>Caminatas australes</h3><p>Senderos guiados sobre el fjord, con el macizo patagónico de telón de fondo.</p></div></div>
+    <div class="rcard txt"><h3>Kayak & fotografía de fauna</h3><p>Remadas silenciosas entre icebergs y talleres de fotografía con guías de expedición. Incluye equipo completo y ponchos de lana para las noches de cubierta.</p></div>
+  </div>
+</section>
+
+<!-- GASTRO -->
+<section class="gastro" id="gastro">
+  <div class="wrap grid">
+    <div>
+      <div class="overline">Gastronomía</div>
+      <h2>La mesa del sur, a la luz de las velas</h2>
+      <p class="lead">Cordero patagónico, bayas del bosque y pan de masa madre. Té de las cinco en el salón Lunar y café de especialidad al amanecer.</p>
+      <div class="small"><img src="6.jpg" alt="Postre de bayas patagónicas"></div>
+    </div>
+    <div class="ph"><img src="5.jpg" alt="Comedor principal de noche"></div>
+  </div>
+</section>
+
+<!-- SPA -->
+<section class="spa" id="spa">
+  <div class="wrap grid">
+    <div class="ph"><img src="7.jpg" alt="Piscina de piedra del spa"></div>
+    <div>
+      <div class="overline">Bienestar</div>
+      <h2>Spa de piedra y vapor</h2>
+      <p class="lead">Piscina climatizada de piedra negra, sauna con vista al océano y tratamientos con aceites de calafate. Yoga al amanecer en la cubierta proa.</p>
+      <div class="facts">
+        <div><b>∞</b><span>piscina climatizada</span></div>
+        <div><b>12</b><span>salas de tratamiento</span></div>
+        <div><b>2</b><span>saunas & hammam</span></div>
+        <div><b>7</b><span>clases semanales</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASINO -->
+<section class="casino" id="casino">
+  <div class="wrap">
+    <div class="cbox">
+      <div>
+        <div class="badge18">+18</div>
+        <div class="overline">Casino Lunar</div>
+        <h2>La noche también se juega</h2>
+        <p class="lead">Terciopelo índigo, cristal y plata: mesas en vivo y slots premium con el océano de telón de fondo. Torneos de póker cada semana de navegación.</p>
+        <div class="chips"><span>Ruleta en vivo</span><span>Blackjack</span><span>Póker caribeño</span><span>Slots premium</span></div>
+        <p class="note">Acceso exclusivo para mayores de 18 años. Jugá con moderación. Ver <a href="#legales" style="color:var(--moon)">Política de Juego Responsable</a>.</p>
+      </div>
+      <div class="ph"><img src="12.jpg" alt="Salón del casino"></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote">
+  <div class="bg"><img src="11.jpg" alt="Pareja en la cubierta bajo la luna"></div>
+  <div class="wrap">
+    <blockquote>“Navegamos toda la noche y la luna no se movió de nuestra estela.”</blockquote>
+    <cite>Mariana & Julián — Buenos Aires</cite>
+  </div>
+</section>
+
+<!-- RUTA -->
+<section class="ruta" id="ruta">
+  <div class="wrap">
+    <div class="overline">Itinerario 2026–2027</div>
+    <h2>Ocho noches de sur, ida y vuelta</h2>
+    <div class="rgrid">
+      <div class="stop"><div class="m">☾</div><div><h4>Buenos Aires</h4><p>Día 1 · Embarque en Puerto Madero y cena de bienvenida.</p></div></div>
+      <div class="stop"><div class="m">☾</div><div><h4>Río de la Plata</h4><p>Día 2 · Spa, astronomía y primera noche de casino.</p></div></div>
+      <div class="stop"><div class="m">☾</div><div><h4>Puerto Madryn</h4><p>Día 3 · Snorkel con lobos marinos y fauna de Península Valdés.</p></div></div>
+      <div class="stop"><div class="m">☾</div><div><h4>Ushuaia</h4><p>Día 5 · El fin del mundo y el Canal Beagle.</p></div></div>
+      <div class="stop"><div class="m">☾</div><div><h4>Cabo de Hornos</h4><p>Día 6 · El mítico paso entre dos océanos.</p></div></div>
+      <div class="stop"><div class="m">☾</div><div><h4>Glaciares del Sur</h4><p>Día 7 · Kayak entre icebergs y paredes azules.</p></div></div>
+      <div class="stop"><div class="m">☾</div><div><h4>Atlántico Sur</h4><p>Días 8–11 · Milonga, cine clásico y conferencias australes.</p></div></div>
+      <div class="stop"><div class="m">☾</div><div><h4>Buenos Aires</h4><p>Día 12 · Desembarque con desayuno frente a la ciudad.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTAS -->
+<section class="consultas" id="consultas">
+  <div class="wrap">
+    <div class="overline">Consultas</div>
+    <h2>Contanos cómo imaginás tu noche austral</h2>
+    <p class="lead">Un asesor de Luna Patagónica te escribe dentro de las 24 horas con toda la información de la temporada.</p>
+    <form class="form" id="form">
+      <input type="text" placeholder="Nombre y apellido" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Tu mensaje…"></textarea>
+      <button class="btn" type="submit">Enviar consulta</button>
+    </form>
+    <div class="ok" id="ok">¡Gracias! Tu consulta fue enviada. Un asesor de Luna Patagónica te escribirá dentro de las 24 horas.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="#inicio" style="margin-bottom:14px">
+          <svg viewBox="0 0 26 26"><path d="M19 2a11 11 0 1 0 5 14A9.5 9.5 0 0 1 19 2z"/></svg>
+          LUNA PATAGÓNICA
+        </a>
+        <p>Cruceros de lujo & casino · Buenos Aires, Argentina. Bajo los cielos más puros del planeta, desde 2010.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>Av. de Mayo 1200, Buenos Aires</p>
+        <a href="tel:+541155550100">+54 11 5555-0100</a>
+        <a href="mailto:hola@lunapatagonica.com.ar">hola@lunapatagonica.com.ar</a>
+      </div>
+      <div>
+        <h4>A bordo</h4>
+        <a href="#experiencias">Experiencias</a><a href="#suites">Suites</a><a href="#casino">Casino</a><a href="#ruta">Ruta</a>
+      </div>
+    </div>
+    <div class="legales" id="legales">
+      <details><summary>Política de Privacidad</summary><p>Luna Patagónica S.A. trata los datos personales de conformidad con la Ley 25.326 de Protección de Datos Personales de la República Argentina. Los datos del formulario de consultas se utilizan exclusivamente para responder solicitudes. Podés ejercer tus derechos de acceso, rectificación y supresión escribiendo a privacidad@lunapatagonica.com.ar. No vendemos ni cedemos datos a terceros.</p></details>
+      <details><summary>Términos y Condiciones</summary><p>Los itinerarios, horarios y puertos pueden modificarse por razones de seguridad, clima o fuerza mayor, sin que ello genere derecho a compensación adicional. El pasajero es responsable de contar con documentación personal y sanitaria vigente para todos los puertos del itinerario. Los contenidos de este sitio tienen carácter informativo.</p></details>
+      <details><summary>Política de Cookies</summary><p>Este sitio utiliza cookies técnicas necesarias para su funcionamiento y cookies analíticas anónimas para mejorar la experiencia. Podés configurar tu navegador para bloquearlas o eliminarlas en cualquier momento; en tal caso, algunas funciones podrían no estar disponibles. Al continuar navegando, aceptás el uso de cookies según esta política.</p></details>
+      <details><summary>Política de Juego Responsable (+18)</summary><p>El casino de a bordo es un espacio de entretenimiento exclusivo para mayores de 18 años. Promovemos el juego responsable: jugá con moderación y nunca por encima de tus posibilidades. El personal está capacitado para asistir a quien lo solicite y para limitar el acceso ante signos de juego problemático. Prohibida la participación de menores y de tripulantes en servicio. Contacto: juegoresponsable@lunapatagonica.com.ar.</p></details>
+      <details><summary>Accesibilidad y Seguridad</summary><p>El barco cuenta con certificación internacional de seguridad, tripulación bilingüe y accesibilidad en las áreas principales. Ante cualquier necesidad específica durante la navegación, el equipo de recepción está disponible las 24 horas.</p></details>
+    </div>
+    <div class="copy">© 2026 Luna Patagónica S.A. · Buenos Aires, Argentina · Todos los derechos reservados · +18 Jugá con moderación</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('form').addEventListener('submit',function(e){
+  e.preventDefault();
+  this.style.display='none';
+  document.getElementById('ok').style.display='block';
+});
+</script>
+</body>
+</html>
