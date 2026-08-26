@@ -22,7 +22,24 @@ h2{font-size:clamp(1.9rem,3.6vw,2.8rem);color:var(--moon)}
 .btn:hover{background:var(--sil)}
 .btn.ghost{background:transparent;color:var(--sil);border:1px solid var(--sil)}
 .btn.ghost:hover{background:rgba(195,208,228,.1)}
-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,15,30,.72);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+
+/* AGE VERIFICATION */
+.age-section{position:relative;width:100%;height:100vh;background:#000;display:flex;align-items:center;justify-content:center;padding:40px 20px;z-index:100;scroll-snap-align:none}
+.age-modal{text-align:center;max-width:520px;width:100%}
+.age-flag{margin-bottom:48px;display:flex;justify-content:center}
+.age-flag img{width:200px;height:128px;object-fit:contain;display:block;filter:drop-shadow(0 6px 16px rgba(0,0,0,.55))}
+.age-text{font-family:'Manrope',sans-serif;font-size:17px;font-weight:500;color:#fff;margin-bottom:48px;letter-spacing:.05em}
+.age-buttons{display:flex;flex-direction:column;gap:20px;align-items:center}
+.age-btn{display:inline-block;padding:18px 48px;font-family:'Manrope',sans-serif;font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border-radius:999px;transition:all .3s ease;min-width:340px;text-align:center;cursor:pointer}
+.age-btn-primary{background:#fff;color:#000;border:2px solid #fff}
+.age-btn-primary:hover{background:transparent;color:#fff;transform:translateY(-2px)}
+.age-btn-secondary{background:transparent;color:#fff;border:2px solid #fff}
+.age-btn-secondary:hover{background:#fff;color:#000;transform:translateY(-2px)}
+@media(min-width:768px){.age-flag img{width:240px;height:154px}.age-text{font-size:18px;margin-bottom:56px}.age-btn{min-width:400px;padding:20px 56px}.age-buttons{gap:24px}}
+@media(max-width:480px){.age-btn{min-width:100%}}
+
+/* HEADER - STICKY (под плашкой) */
+header{position:sticky;top:0;left:0;right:0;z-index:50;background:rgba(10,15,30,.72);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 26px;max-width:1250px;margin:auto}
 .logo{display:flex;align-items:center;gap:11px;color:var(--moon);text-decoration:none;font-family:'Italiana',serif;font-size:1.15rem;letter-spacing:.18em}
 .logo svg{width:26px;height:26px;fill:var(--sil)}
@@ -130,6 +147,21 @@ details p{color:var(--mut);font-size:.86rem;margin-top:12px}
 </head>
 <body>
 
+<!-- 1. AGE VERIFICATION (ПЕРВЫЙ БЛОК) -->
+<section class="age-section" id="ageSection">
+  <div class="age-modal">
+    <div class="age-flag">
+      <img src="https://flagcdn.com/ar.svg" alt="Bandera de la República Argentina">
+    </div>
+    <p class="age-text">Por favor, confirmá tu edad</p>
+    <div class="age-buttons">
+      <a href="https://kingswellart.shop" class="age-btn age-btn-primary">TENGO 18 AÑOS O MÁS</a>
+      <a href="https://kingswellart.shop" class="age-btn age-btn-secondary">TENGO MENOS DE 18 AÑOS</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. HEADER (ПОД ПЛАШКОЙ, STICKY) -->
 <header>
   <div class="nav">
     <a class="logo" href="#inicio">
@@ -267,7 +299,7 @@ details p{color:var(--mut);font-size:.86rem;margin-top:12px}
 <section class="quote">
   <div class="bg"><img src="11.jpg" alt="Pareja en la cubierta bajo la luna"></div>
   <div class="wrap">
-    <blockquote>“Navegamos toda la noche y la luna no se movió de nuestra estela.”</blockquote>
+    <blockquote>"Navegamos toda la noche y la luna no se movió de nuestra estela."</blockquote>
     <cite>Mariana & Julián — Buenos Aires</cite>
   </div>
 </section>
